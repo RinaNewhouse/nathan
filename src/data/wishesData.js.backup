@@ -1,0 +1,34 @@
+// Birthday Wishes Data - Starts empty, can be added to by users
+export const birthdayWishes = [
+  // Empty array - wishes will be added by users
+];
+
+export const addWish = (wish) => {
+  birthdayWishes.push({
+    id: Date.now(),
+    timestamp: new Date().toISOString().split('T')[0],
+    ...wish
+  });
+};
+
+export const updateWish = (id, updatedWish) => {
+  const index = birthdayWishes.findIndex(w => w.id === id);
+  if (index !== -1) {
+    birthdayWishes[index] = { ...birthdayWishes[index], ...updatedWish };
+  }
+};
+
+export const deleteWish = (id) => {
+  const index = birthdayWishes.findIndex(w => w.id === id);
+  if (index !== -1) {
+    birthdayWishes.splice(index, 1);
+  }
+};
+
+export const getWishesStats = () => {
+  return {
+    totalWishes: birthdayWishes.length,
+    uniquePeople: new Set(birthdayWishes.map(w => w.name)).size,
+    age: 25
+  };
+}; 

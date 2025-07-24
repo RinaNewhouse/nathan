@@ -1,0 +1,369 @@
+.facts-page {
+  min-height: 100vh;
+  padding: 2rem;
+}
+
+.facts-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Facts Header */
+.facts-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.facts-header h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.facts-header p {
+  color: #e2e8f0;
+}
+
+/* Add Fact Section */
+.add-fact-section {
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.add-fact-btn {
+  background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 25px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.add-fact-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Fact Form */
+.fact-form {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 2rem;
+  border-radius: 20px;
+  margin-top: 2rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  animation: slideInDown 0.5s ease;
+}
+
+@keyframes slideInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: #333;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: 0.8rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: #4ecdc4;
+}
+
+.emoji-picker {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.emoji-option {
+  background: none;
+  border: 2px solid #e0e0e0;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.emoji-option:hover {
+  border-color: #4ecdc4;
+  transform: scale(1.1);
+}
+
+.emoji-option.selected {
+  border-color: #4ecdc4;
+  background: #4ecdc4;
+  color: white;
+}
+
+.submit-fact-btn {
+  background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 25px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.submit-fact-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Facts Grid */
+.facts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+/* Fact Cards */
+.fact-card {
+  perspective: 1000px;
+  cursor: pointer;
+  height: 300px;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.fact-card.flipped .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 20px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.card-front {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.card-back {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  color: white;
+  transform: rotateY(180deg);
+}
+
+.fact-card:hover .card-front {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+.fact-card:hover .card-back {
+  transform: rotateY(180deg) translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+.fact-emoji, .detail-emoji {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  animation: bounce 2s infinite;
+}
+
+.fact-category, .detail-category {
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.fact-text, .detail-text {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.flip-hint {
+  font-size: 0.8rem;
+  opacity: 0.7;
+  font-style: italic;
+  margin-top: auto;
+}
+
+
+
+/* Fun Message */
+.fun-message {
+  margin-top: 4rem;
+}
+
+.message-bubble {
+  background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+  color: white;
+  padding: 2rem;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  animation: slideInUp 0.8s ease-out;
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.message-bubble h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.message-bubble p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .facts-page {
+    padding: 1rem;
+  }
+  
+  .facts-header h1 {
+    font-size: 2rem;
+  }
+  
+  .facts-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .fact-card {
+    height: 250px;
+  }
+  
+  .card-front, .card-back {
+    padding: 1.5rem;
+  }
+  
+  .fact-emoji, .detail-emoji {
+    font-size: 2.5rem;
+  }
+  
+  .fact-category, .detail-category {
+    font-size: 1.1rem;
+  }
+  
+  .fact-text, .detail-text {
+    font-size: 0.9rem;
+  }
+} 
+
+.stat-label {
+  font-size: var(--font-size-sm);
+  color: #4a5568;
+  font-weight: 500;
+} 
+
+.stat-number {
+  font-size: var(--font-size-3xl);
+  font-weight: 700;
+  color: #2d3748;
+} 
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .facts-page {
+    padding: var(--spacing-lg) var(--spacing-md);
+  }
+  
+  .facts-header {
+    margin-bottom: var(--spacing-xl);
+    padding-top: var(--spacing-md);
+  }
+  
+  .facts-header h1 {
+    font-size: var(--font-size-2xl);
+    margin-bottom: var(--spacing-sm);
+  }
+  
+  .facts-header p {
+    font-size: var(--font-size-base);
+  }
+  
+  .add-fact-btn {
+    padding: var(--spacing-sm) var(--spacing-lg);
+    font-size: var(--font-size-base);
+  }
+  
+  .facts-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+  }
+  
+  .fact-card {
+    padding: var(--spacing-lg);
+  }
+} 
